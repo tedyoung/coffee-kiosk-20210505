@@ -1,5 +1,6 @@
-package com.welltestedlearning.coffeekiosk;
+package com.welltestedlearning.coffeekiosk.adapter.in.api;
 
+import com.welltestedlearning.coffeekiosk.domain.CoffeeItem;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

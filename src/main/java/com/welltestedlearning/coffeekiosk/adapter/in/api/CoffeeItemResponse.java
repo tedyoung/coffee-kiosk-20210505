@@ -1,4 +1,6 @@
-package com.welltestedlearning.coffeekiosk;
+package com.welltestedlearning.coffeekiosk.adapter.in.api;
+
+import com.welltestedlearning.coffeekiosk.domain.CoffeeItem;
 
 public class CoffeeItemResponse {
   private long id;
