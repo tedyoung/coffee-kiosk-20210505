@@ -2,7 +2,7 @@ package com.welltestedlearning.coffeekiosk;
 
 public class CoffeeItem {
   private Long id;
-  private final String size;
+  private String size;
   private final String kind;
   private final String creamer;
 
