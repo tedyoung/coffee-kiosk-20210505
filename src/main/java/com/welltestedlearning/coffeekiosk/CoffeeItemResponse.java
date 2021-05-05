@@ -9,6 +9,9 @@ public class CoffeeItemResponse {
 
   public static CoffeeItemResponse from(CoffeeItem coffeeItem) {
     CoffeeItemResponse coffeeItemResponse = new CoffeeItemResponse();
+    if (coffeeItem.getId() != null) {
+      coffeeItemResponse.setId(coffeeItem.getId());
+    }
     coffeeItemResponse.setCreamer(coffeeItem.creamer());
     coffeeItemResponse.setSize(coffeeItem.size());
     coffeeItemResponse.setKind(coffeeItem.kind());
