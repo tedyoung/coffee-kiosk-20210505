@@ -1,6 +1,5 @@
 package com.welltestedlearning.coffeekiosk;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.boot.CommandLineRunner;
@@ -12,8 +11,11 @@ import java.util.Arrays;
 @Component
 public class Startup implements CommandLineRunner {
 
-  @Autowired
-  private ApplicationContext applicationContext;
+  private final ApplicationContext applicationContext;
+
+  public Startup(ApplicationContext applicationContext) {
+    this.applicationContext = applicationContext;
+  }
 
   @Override
   public void run(String... args) throws Exception {
