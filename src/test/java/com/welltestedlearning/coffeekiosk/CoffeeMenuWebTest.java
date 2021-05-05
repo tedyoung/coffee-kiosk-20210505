@@ -20,4 +20,6 @@ public class CoffeeMenuWebTest {
     mockMvc.perform(get("/api/coffee/menu/sizes"))
            .andExpect(status().isOk());
   }
+
+
 }
