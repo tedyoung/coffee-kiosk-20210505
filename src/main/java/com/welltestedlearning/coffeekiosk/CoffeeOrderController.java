@@ -1,12 +1,17 @@
 package com.welltestedlearning.coffeekiosk;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CoffeeOrderController {
 
-    public CoffeeOrderController() {
-        System.out.println("CoffeeOrderController with @RestController has been instantiated.");
+    @Autowired
+    public CoffeeOrderController(CoffeeOrderService coffeeOrderService) {
+        System.out.println();
+        System.out.println(this.getClass().getName() + " has been instantiated.");
+        System.out.println("  --> Was passed a reference to a dependency: " + coffeeOrderService);
+        System.out.println();
     }
 
 }
