@@ -48,4 +48,22 @@ class CoffeeOrderWebTest {
         .isEqualTo(expectedJson);
   }
 
+  @Test
+  public void getCoffeeOrderAsXmlIsOk() throws Exception {
+    MvcResult mvcResult = mockMvc.perform(get("/api/coffee/order")
+                                              .accept(MediaType.APPLICATION_XML))
+                                 .andExpect(status().isOk())
+                                 .andReturn();
+
+    String xmlContent = mvcResult.getResponse().getContentAsString();
+    assertThat(xmlContent)
+        .contains("<CoffeeItemResponse>",
+                  "<id>1</id>",
+                  "<kind>latte</kind>",
+                  "<creamer>milk</creamer>",
+                  "<size>small</size>",
+                  "<price>1</price>",
+                  "</CoffeeItemResponse>");
+  }
+
 }
