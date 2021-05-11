@@ -3,9 +3,11 @@ package com.welltestedlearning.coffeekiosk.adapter.in.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.welltestedlearning.coffeekiosk.domain.CoffeeItem;
 import com.welltestedlearning.coffeekiosk.domain.CoffeeOrder;
+import com.welltestedlearning.coffeekiosk.domain.CoffeeOrderRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -18,6 +20,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(CoffeeOrderController.class)
+//@SpringBootTest
+//@AutoConfigureMockMvc
 class CoffeeOrderWebTest {
 
   @Autowired
@@ -25,6 +29,10 @@ class CoffeeOrderWebTest {
 
   @Autowired
   ObjectMapper objectMapper;
+
+  // DUMMY
+  @MockBean
+  CoffeeOrderRepository coffeeOrderRepository;
 
   @Test
   public void getCoffeeOrderIsOk() throws Exception {
