@@ -72,6 +72,13 @@ class CoffeeOrderWebTest {
   }
 
   @Test
+  public void getNegativeIdReturnsBadRequestStatus() throws Exception {
+    mockMvc.perform(get("/api/coffee/orders/-1")
+                        .accept(MediaType.APPLICATION_JSON))
+           .andExpect(status().isBadRequest());
+  }
+
+  @Test
   public void getCoffeeOrderIsCompleteJson() throws Exception {
     MvcResult mvcResult = mockMvc.perform(get("/api/coffee/orders/23")
                                               .accept(MediaType.APPLICATION_JSON))
