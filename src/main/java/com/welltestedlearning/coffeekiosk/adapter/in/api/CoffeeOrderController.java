@@ -3,12 +3,9 @@ package com.welltestedlearning.coffeekiosk.adapter.in.api;
 import com.welltestedlearning.coffeekiosk.domain.CoffeeOrder;
 import com.welltestedlearning.coffeekiosk.domain.CoffeeOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -35,11 +32,6 @@ public class CoffeeOrderController {
     } else {
       return ResponseEntity.notFound().build();
     }
-  }
-
-  @ExceptionHandler(IllegalArgumentException.class)
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public void handleIllegalArgumentAsBadRequest() {
   }
 
 }
