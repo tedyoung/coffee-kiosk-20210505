@@ -85,7 +85,7 @@ class CoffeeOrderWebTest {
                                  .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                                  .andReturn();
 
-    CoffeeOrderResponse expectedResponse = CoffeeOrderResponse.from(coffeeOrder, "$");
+    CoffeeOrderResponse expectedResponse = CoffeeOrderResponse.from(coffeeOrder, "$", coffeeOrder.totalPrice());
     String expectedJson = objectMapper.writeValueAsString(expectedResponse);
 
     assertThat(mvcResult.getResponse().getContentAsString())

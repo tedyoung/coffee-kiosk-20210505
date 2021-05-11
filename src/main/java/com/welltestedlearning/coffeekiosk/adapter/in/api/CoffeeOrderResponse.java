@@ -13,12 +13,12 @@ public class CoffeeOrderResponse {
   private List<CoffeeItemResponse> coffeeItems;
   private String totalPrice;
 
-  public static CoffeeOrderResponse from(CoffeeOrder coffeeOrder, String pricePrefix) {
+  public static CoffeeOrderResponse from(CoffeeOrder coffeeOrder, String pricePrefix, int totalPrice) {
     CoffeeOrderResponse coffeeOrderResponse = new CoffeeOrderResponse();
     coffeeOrderResponse.setId(coffeeOrder.getId());
     coffeeOrderResponse.setCustomerName(coffeeOrder.customerName());
     coffeeOrderResponse.setOrderDateTime(coffeeOrder.orderDateTime().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-    coffeeOrderResponse.setTotalPrice(pricePrefix + coffeeOrder.totalPrice());
+    coffeeOrderResponse.setTotalPrice(pricePrefix + totalPrice);
 
     List<CoffeeItemResponse> coffeeItemResponses = coffeeOrder.coffeeItems()
                                                               .stream()
