@@ -23,8 +23,12 @@ public class CoffeeOrderController {
   @GetMapping("/api/coffee/orders/{id}")
   public ResponseEntity<CoffeeOrderResponse> coffeeOrder(@PathVariable("id") long orderId) {
     Optional<CoffeeOrder> order = coffeeOrderRepository.findById(orderId);
-    CoffeeOrderResponse response = CoffeeOrderResponse.from(order.get());
-    return ResponseEntity.ok(response);
+    if (order.isPresent()) {
+      CoffeeOrderResponse response = CoffeeOrderResponse.from(order.get());
+      return ResponseEntity.ok(response);
+    } else {
+      return ResponseEntity.notFound().build();
+    }
   }
 
 }
