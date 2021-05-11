@@ -20,7 +20,8 @@ class CoffeeOrderControllerTest {
     CoffeeOrderController coffeeOrderController =
         new CoffeeOrderController(coffeeOrderRepository);
 
-    CoffeeOrderResponse coffeeOrderResponse = coffeeOrderController.coffeeOrder(10L);
+    CoffeeOrderResponse coffeeOrderResponse =
+        coffeeOrderController.coffeeOrder(10L).getBody();
 
     assertThat(coffeeOrderResponse.getId())
         .isEqualTo(10L);

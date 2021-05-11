@@ -65,6 +65,13 @@ class CoffeeOrderWebTest {
   }
 
   @Test
+  public void getNonExistentCoffeeOrderReturnsNotFoundStatus() throws Exception {
+    mockMvc.perform(get("/api/coffee/orders/9999")
+                        .accept(MediaType.APPLICATION_JSON))
+           .andExpect(status().isNotFound());
+  }
+
+  @Test
   public void getCoffeeOrderIsCompleteJson() throws Exception {
     MvcResult mvcResult = mockMvc.perform(get("/api/coffee/orders/23")
                                               .accept(MediaType.APPLICATION_JSON))

@@ -3,6 +3,7 @@ package com.welltestedlearning.coffeekiosk.adapter.in.api;
 import com.welltestedlearning.coffeekiosk.domain.CoffeeOrder;
 import com.welltestedlearning.coffeekiosk.domain.CoffeeOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,9 +21,10 @@ public class CoffeeOrderController {
   }
 
   @GetMapping("/api/coffee/orders/{id}")
-  public CoffeeOrderResponse coffeeOrder(@PathVariable("id") long orderId) {
+  public ResponseEntity<CoffeeOrderResponse> coffeeOrder(@PathVariable("id") long orderId) {
     Optional<CoffeeOrder> order = coffeeOrderRepository.findById(orderId);
-    return CoffeeOrderResponse.from(order.get());
+    CoffeeOrderResponse response = CoffeeOrderResponse.from(order.get());
+    return ResponseEntity.ok(response);
   }
 
 }
