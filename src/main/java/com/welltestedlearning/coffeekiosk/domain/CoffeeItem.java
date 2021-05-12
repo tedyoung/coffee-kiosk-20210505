@@ -27,11 +27,11 @@ public class CoffeeItem {
   public int price() {
     switch (size) {
       case "small":
-        return 1;
+        return 100;
       case "medium":
-        return 2;
+        return 200;
       case "large":
-        return 3;
+        return 300;
       default:
         return 0;
     }
